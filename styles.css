@@ -562,9 +562,48 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Burger Menu Styles */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-slate);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 2rem;
+    }
+    nav .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: 100vh;
+        background-color: var(--card-bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 60%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 1001;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .nav-active {
+        transform: translateX(0%);
+    }
+    .burger {
+        display: block;
+        z-index: 1002;
     }
     .about-content {
         grid-template-columns: 1fr;
@@ -572,13 +611,34 @@ footer {
     .about-image {
         margin: 0 auto;
     }
+    .section-title::after {
+        width: 100px;
+    }
     .contact-grid {
         grid-template-columns: 1fr;
     }
     .side-elements {
         display: none;
     }
-    nav ul {
-        display: none; /* Simple hide for mobile, can be replaced with a burger menu */
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
     }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
 }

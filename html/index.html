@@ -26,7 +26,7 @@
     <header>
         <nav>
             <a href="#home" class="logo">Dileep</a>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -37,6 +37,10 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="../asset/resume/DileepSE.pdf" target="_blank" class="btn-nav">Resume</a></li>
             </ul>
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 
@@ -380,6 +384,29 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
+        // --- Burger Menu ---
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            });
+        }
+        navSlide();
     </script>
 </body>
 </html>
