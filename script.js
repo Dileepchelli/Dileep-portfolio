@@ -39,6 +39,7 @@ const observer = new IntersectionObserver((entries, observer) => {
             // Stagger children animation if needed
             const children = entry.target.querySelectorAll('.job, .project-card, .certification');
             children.forEach((child, index) => {
+                // Change 100 to a different value
                 child.style.transitionDelay = `${index * 100}ms`;
             });
             observer.unobserve(entry.target);
