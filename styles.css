@@ -147,7 +147,7 @@ nav ul li a.btn-nav {
     background-color: rgba(100, 255, 218, 0.1);
 }
 
-nav ul li a:hover::after {
+nav ul li a:not(.btn-nav):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -370,13 +370,6 @@ section {
     font-family: var(--font-mono);
 }
 /* Skills Section */
-.skill-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-}
 
 .skill-card i {
     font-size: 2rem;
@@ -391,6 +384,11 @@ section {
 }
 
 .skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
     background: var(--card-bg-color);
     padding: 1.5rem;
     border-radius: 8px;
@@ -461,11 +459,6 @@ section {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: bold;
-}
-
-.project-card .btn-card {
-    margin: auto;
-    text-align: center;
 }
 
 .contact-grid {
@@ -542,7 +535,6 @@ section {
     border: 1px solid var(--primary-color);
     color: #fff;
     padding: 0.8rem 1.5rem;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
@@ -559,8 +551,7 @@ section {
 footer {
     text-align: center;
     padding: 2rem 0;
-    background: var(--primary-color);
-    background: transparent;
+    background-color: transparent;
     color: var(--slate);
     margin-top: 4rem;
     font-family: var(--font-mono);
