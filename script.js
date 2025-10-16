@@ -116,11 +116,13 @@ async function handleSubmit(event) {
         } else {
             // Handle server-side errors from Formspree
             formStatus.innerHTML = "Oops! There was a problem submitting your form.";
+            formStatus.className = 'error';
             formStatus.style.display = 'block';
         }
     } catch (error) {
         // Handle network errors
         formStatus.innerHTML = "Oops! There was a network error.";
+        formStatus.className = 'error';
         formStatus.style.display = 'block';
     }
 }

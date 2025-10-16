@@ -656,3 +656,9 @@ footer {
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
 }
+
+#form-status.error {
+    background-color: rgba(255, 100, 100, 0.1);
+    color: #ff8a8a;
+    border: 1px solid #ff8a8a;
+}
