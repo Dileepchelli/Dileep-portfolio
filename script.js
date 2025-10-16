@@ -3,7 +3,7 @@ const navSlide = () => {
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
 
-    burger.addEventListener('click', () => {
+    const toggleNav = () => {
         // Toggle Nav
         nav.classList.toggle('nav-active');
 
@@ -15,20 +15,17 @@ const navSlide = () => {
                 link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
             }
         });
-
         // Burger Animation
         burger.classList.toggle('toggle');
-    });
+    };
+
+    burger.addEventListener('click', toggleNav);
 
     // Close nav when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (nav.classList.contains('nav-active')) {
-                nav.classList.remove('nav-active');
-                burger.classList.remove('toggle');
-                navLinks.forEach(link => {
-                    link.style.animation = '';
-                });
+                toggleNav(); // Reuse the toggle function to close the nav
             }
         });
     });
