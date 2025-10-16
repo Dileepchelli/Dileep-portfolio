@@ -19,6 +19,19 @@ const navSlide = () => {
         // Burger Animation
         burger.classList.toggle('toggle');
     });
+
+    // Close nav when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('nav-active')) {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                navLinks.forEach(link => {
+                    link.style.animation = '';
+                });
+            }
+        });
+    });
 }
 
 navSlide();
